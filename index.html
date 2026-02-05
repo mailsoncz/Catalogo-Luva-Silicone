@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo | Luva de Silicone</title>
+
+  <!--
+    ==============================
+    ESTILOS DA PÁGINA
+    ==============================
+    Tudo aqui é visual (cores, layout, fontes)
+  -->
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    /* TOPO / CABEÇALHO */
+    header {
+      background: #0f172a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-height: 60px; /* Logo da loja */
+      margin-bottom: 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* GRADE DO CATÁLOGO */
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD DO PRODUTO */
+    .produto {
+      position: relative; /* Necessário para selo "Mais vendido" */
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .produto:hover {
+      transform: translateY(-4px);
+    }
+
+    /* SELO MAIS VENDIDO */
+    .badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #dc2626;
+      color: #fff;
+      font-size: 0.7rem;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .produto img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .produto h2 {
+      font-size: 1rem;
+      margin: 8px 0;
+    }
+
+    /* PREÇO NORMAL RISCADO (PROMOÇÃO) */
+    .preco-antigo {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    /* PREÇO ATUAL */
+    .preco {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #16a34a;
+      margin: 5px 0;
+    }
+
+    .parcelamento {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    /* BOTÃO WHATSAPP */
+    .btn-whatsapp {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: bold;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #777;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    ==============================
+    TOPO DA LOJA
+    ==============================
+    Substitua o src da imagem pelo logo da sua loja
+  -->
+  <header>
+    <img src="https://via.placeholder.com/200x60?text=LOGO" alt="Logo da Loja" />
+    <h1>Nome da Sua Loja</h1>
+    <p>Catálogo de Luvas de Silicone</p>
+  </header>
+
+  <main class="container">
+    <section class="catalogo">
+
+      <!-- ==============================
+           PRODUTO 1 (COM PROMOÇÃO + MAIS VENDIDO)
+           ============================== -->
+      <div class="produto">
+        <div class="badge">MAIS VENDIDO</div>
+
+        <img src="https://via.placeholder.com/300x300?text=Luva+de+Silicone" alt="Luva de Silicone" />
+        <h2>Luva de Silicone Hidratante</h2>
+
+        <!-- Preço antigo riscado -->
+        <div class="preco-antigo">R$ 39,90</div>
+
+        <!-- Preço atual -->
+        <div class="preco">R$ 32,00</div>
+
+        <!-- Parcelamento automático (exemplo fixo) -->
+        <div class="parcelamento">3x de R$ 12,80 com juros</div>
+
+        <!--
+          Botão WhatsApp
+          Troque o número e a mensagem
+        -->
+        <a 
+          class="btn-whatsapp" 
+          href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20a%20Luva%20de%20Silicone%20Hidratante" 
+          target="_blank">
+          Comprar no WhatsApp
+        </a>
+      </div>
+
+      <!-- ==============================
+           PRODUTO 2 (SEM PROMOÇÃO)
+           ============================== -->
+      <div class="produto">
+        <img src="https://via.placeholder.com/300x300?text=Luva+Premium" alt="Luva Premium" />
+        <h2>Luva de Silicone Premium</h2>
+
+        <div class="preco">R$ 39,90</div>
+        <div class="parcelamento">3x de R$ 15,96 com juros</div>
+
+        <a 
+          class="btn-whatsapp" 
+          href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20a%20Luva%20Premium" 
+          target="_blank">
+          Comprar no WhatsApp
+        </a>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    © 2026 - Nome da Sua Loja
+  </footer>
+
+</body>
+</html>

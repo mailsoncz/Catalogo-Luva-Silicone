@@ -232,23 +232,28 @@
           Comprar no WhatsApp
         </a>
       </div>
-       <!-- PRODUTO 4 - EXEMPLO ADICIONAL -->
-      <div class="produto">
+       
+      <!-- PRODUTO 4 - EXEMPLO ADICIONAL -->
+      <div class="produto"
+        data-preco-original="39.90"
+        data-desconto-pix="20"
+        data-parcelas="3"
+        data-juros-cartao="0">
         <img src="img/creme aloevera.png" alt="Luva Premium" />
         <h2>Creme Para As Mãos Aloe-Vera Hands 100g</h2>
         
         <div class="preco-container">
-          <div class="preco-antigo">R$ 45,90</div>
-          <div class="preco-pix">R$ 38,50</div>
-          <span class="desconto-pix">16% OFF NO PIX</span>
+          <div class="preco-antigo"></div>
+          <div class="preco-pix"></div>
+          <span class="desconto-pix"></span>
           
-          <div class="preco-normal">R$ 42,90 no cartão</div>
-          <div class="parcelamento">ou 3x de <strong>R$ 14,30</strong> sem juros</div>
+          <div class="preco-normal"></div>
+          <div class="parcelamento">
         </div>
 
-        <a class="btn-whatsapp" href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20a%20Luva%20Premium%20por%20R$%2038,50%20no%20PIX" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">  <!-- href vazio -->
+    Comprar no WhatsApp
+  </a>
       </div>
 
 
@@ -258,6 +263,57 @@
   <footer>
     © 2026 - HCare - Todos os direitos reservados
   </footer>
+
+  <script>
+  // Função para formatar preços em reais
+  function formatarPreco(valor) {
+    return valor.toFixed(2).replace('.', ',');
+  }
+
+  // Função que calcula tudo para cada produto
+  function calcularPrecos(produto) {
+    // Pegar os valores dos atributos data-
+    const precoOriginal = parseFloat(produto.dataset.precoOriginal);
+    const descontoPix = parseFloat(produto.dataset.descontoPix);
+    const parcelas = parseInt(produto.dataset.parcelas) || 3; // padrão: 3x
+    const jurosCartao = parseFloat(produto.dataset.jurosCartao) || 0; // 0 = sem juros
+    
+    // Cálculos
+    const valorPix = precoOriginal * (1 - descontoPix/100);
+    let valorCartao = precoOriginal;
+    
+    // Se tiver juros no cartão, aplica (ex: 5% = 1.05)
+    if (jurosCartao > 0) {
+      valorCartao = precoOriginal * (1 + jurosCartao/100);
+    }
+    
+    const valorParcela = valorCartao / parcelas;
+    
+    // Atualizar o HTML
+    produto.querySelector('.preco-antigo').innerHTML = `R$ ${formatarPreco(precoOriginal)}`;
+    produto.querySelector('.preco-pix').innerHTML = `R$ ${formatarPreco(valorPix)}`;
+    produto.querySelector('.desconto-pix').innerHTML = `${descontoPix}% OFF NO PIX`;
+    
+    if (jurosCartao > 0) {
+      produto.querySelector('.preco-normal').innerHTML = `R$ ${formatarPreco(valorCartao)} no cartão`;
+      produto.querySelector('.parcelamento').innerHTML = `ou ${parcelas}x de <strong>R$ ${formatarPreco(valorParcela)}</strong> com juros`;
+    } else {
+      produto.querySelector('.preco-normal').innerHTML = `R$ ${formatarPreco(valorCartao)} no cartão`;
+      produto.querySelector('.parcelamento').innerHTML = `ou ${parcelas}x de <strong>R$ ${formatarPreco(valorParcela)}</strong> sem juros`;
+    }
+    
+    // Atualizar link do WhatsApp
+    const nomeProduto = produto.querySelector('h2').innerText;
+    const linkWhatsApp = produto.querySelector('.btn-whatsapp');
+    const mensagem = `Olá! Quero comprar ${nomeProduto} por R$ ${formatarPreco(valorPix)} no PIX`;
+    linkWhatsApp.href = `https://wa.me/5500000000000?text=${encodeURIComponent(mensagem)}`;
+  }
+
+  // Aplicar para todos os produtos quando a página carregar
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.produto').forEach(calcularPrecos);
+  });
+</script>
 
 </body>
 </html>

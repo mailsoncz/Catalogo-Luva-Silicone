@@ -3,14 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Catálogo | Luva de Silicone</title>
+  <title>HCare | Catálogo de Luvas</title>
 
-  <!--
-    ==============================
-    ESTILOS DA PÁGINA
-    ==============================
-    Tudo aqui é visual (cores, layout, fontes)
-  -->
   <style>
     * {
       box-sizing: border-box;
@@ -23,7 +17,6 @@
       color: #333;
     }
 
-    /* TOPO / CABEÇALHO */
     header {
       background: #0f172a;
       color: #fff;
@@ -32,7 +25,7 @@
     }
 
     header img {
-      max-height: 60px; /* Logo da loja */
+      max-height: 60px;
       margin-bottom: 10px;
     }
 
@@ -47,29 +40,28 @@
       padding: 20px;
     }
 
-    /* GRADE DO CATÁLOGO */
     .catalogo {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 20px;
     }
 
-    /* CARD DO PRODUTO */
     .produto {
-      position: relative; /* Necessário para selo "Mais vendido" */
+      position: relative;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       padding: 15px;
       text-align: center;
       transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .produto:hover {
       transform: translateY(-4px);
     }
 
-    /* SELO MAIS VENDIDO */
     .badge {
       position: absolute;
       top: 10px;
@@ -84,52 +76,84 @@
 
     .produto img {
       width: 100%;
-      height: 180px;
+      height: 200px;
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 10px;
     }
 
     .produto h2 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       margin: 8px 0;
+      min-height: 40px;
+      color: #333;
     }
 
-    /* PREÇO NORMAL RISCADO (PROMOÇÃO) */
+    /* ESTILOS DOS PREÇOS - DESTAQUE PARA PIX */
+    .preco-container {
+      background: #f8f9fa;
+      padding: 12px;
+      border-radius: 8px;
+      margin: 10px 0;
+    }
+
     .preco-antigo {
       text-decoration: line-through;
       color: #999;
       font-size: 0.9rem;
+      margin-bottom: 2px;
     }
 
-    /* PREÇO ATUAL */
-    .preco {
-      font-size: 1.2rem;
+    .preco-pix {
+      color: #0f172a;
+      font-size: 1.8rem;
       font-weight: bold;
-      color: #16a34a;
+      line-height: 1.2;
+    }
+
+    .desconto-pix {
+      background: #4CAF50;
+      color: white;
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .preco-normal {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #0f172a;
       margin: 5px 0;
     }
 
     .parcelamento {
       font-size: 0.85rem;
       color: #555;
-      margin-bottom: 10px;
+      margin: 5px 0;
     }
 
-    /* BOTÃO WHATSAPP */
+    .parcelamento strong {
+      color: #0f172a;
+    }
+
     .btn-whatsapp {
       display: inline-block;
       background: #25d366;
       color: #fff;
       text-decoration: none;
-      padding: 10px 15px;
+      padding: 12px 15px;
       border-radius: 8px;
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: bold;
+      margin-top: 10px;
+      transition: background 0.3s;
     }
 
     .btn-whatsapp:hover {
-      background: #1ebe5d;
+      background: #128C7E;
     }
 
     footer {
@@ -142,14 +166,8 @@
 </head>
 <body>
 
-  <!--
-    ==============================
-    TOPO DA LOJA
-    ==============================
-    Substitua o src da imagem pelo logo da sua loja
-  -->
   <header>
-    <img src="https://via.placeholder.com/200x60?text=LOGO" alt="Logo da Loja" />
+    <img src="https://via.placeholder.com/200x60?text=HCARE" alt="Logo HCare" />
     <h1>HCare</h1>
     <p>Catálogo de Luvas de Silicone</p>
   </header>
@@ -157,50 +175,60 @@
   <main class="container">
     <section class="catalogo">
 
-      <!-- ==============================
-           PRODUTO 1 (COM PROMOÇÃO + MAIS VENDIDO)
-           ============================== -->
+      <!-- PRODUTO 1 - COM DESCONTO NO PIX -->
       <div class="produto">
         <div class="badge">MAIS VENDIDO</div>
-
         <img src="https://lh3.googleusercontent.com/d/1-q8LricyZze6c13ZrPb6n4rdsVI6oUZX=w1000" alt="Luva de Silicone" />
         <h2>Luva De Silicone Aloe Vera Hands Miniatura 50g</h2>
+        
+        <div class="preco-container">
+          <div class="preco-antigo">R$ 39,90</div>
+          <div class="preco-pix">R$ 32,00</div>
+          <span class="desconto-pix">20% OFF NO PIX</span>
+          
+          <div class="preco-normal">R$ 35,90 no cartão</div>
+          <div class="parcelamento">ou 3x de <strong>R$ 11,97</strong> sem juros</div>
+        </div>
 
-        <!-- Preço antigo riscado -->
-        <div class="preco-antigo">R$ 39,90</div>
-
-        <!-- Preço atual -->
-        <div class="preco">R$ 32,00</div>
-
-        <!-- Parcelamento automático (exemplo fixo) -->
-        <div class="parcelamento">3x de R$ 12,80 com juros</div>
-
-        <!--
-          Botão WhatsApp
-          Troque o número e a mensagem
-        -->
-        <a 
-          class="btn-whatsapp" 
-          href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20a%20Luva%20de%20Silicone%20Hidratante" 
-          target="_blank">
+        <a class="btn-whatsapp" href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20a%20Luva%20de%20Silicone%20Aloe%20Vera%20por%20R$%2032,00%20no%20PIX" target="_blank">
           Comprar no WhatsApp
         </a>
       </div>
 
-      <!-- ==============================
-           PRODUTO 2 (SEM PROMOÇÃO)
-           ============================== -->
+      <!-- PRODUTO 2 - KIT COM 3 LUVAS -->
       <div class="produto">
-        <img src="https://lh3.googleusercontent.com/d/18iK2HkgIBSouW8FNjt6zRM42zFfRoiEu=w1000" alt="Luva Premium" />
+        <img src="https://lh3.googleusercontent.com/d/18iK2HkgIBSouW8FNjt6zRM42zFfRoiEu=w1000" alt="Kit 3 Luvas" />
         <h2>Kit 3 Luvas De Silicone Romã Creme Para As Mãos Hands 100g</h2>
+        
+        <div class="preco-container">
+          <div class="preco-antigo">R$ 98,70</div>
+          <div class="preco-pix">R$ 84,39</div>
+          <span class="desconto-pix">15% OFF NO PIX</span>
+          
+          <div class="preco-normal">R$ 88,83 no cartão</div>
+          <div class="parcelamento">ou 3x de <strong>R$ 29,61</strong> sem juros</div>
+        </div>
 
-        <div class="preco">R$ 80,00 no pix</div>
-        <div class="parcelamento">ou em 3x de R$ 30,17 com juros</div>
+        <a class="btn-whatsapp" href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20o%20Kit%20com%203%20Luvas%20por%20R$%2084,39%20no%20PIX" target="_blank">
+          Comprar no WhatsApp
+        </a>
+      </div>
 
-        <a 
-          class="btn-whatsapp" 
-          href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20a%20Luva%20Premium" 
-          target="_blank">
+      <!-- PRODUTO 3 - EXEMPLO ADICIONAL -->
+      <div class="produto">
+        <img src="https://lh3.googleusercontent.com/d/1-q8LricyZze6c13ZrPb6n4rdsVI6oUZX=w1000" alt="Luva Premium" />
+        <h2>Luva De Silicone Premium Mãos Macias 70g</h2>
+        
+        <div class="preco-container">
+          <div class="preco-antigo">R$ 45,90</div>
+          <div class="preco-pix">R$ 38,50</div>
+          <span class="desconto-pix">16% OFF NO PIX</span>
+          
+          <div class="preco-normal">R$ 42,90 no cartão</div>
+          <div class="parcelamento">ou 3x de <strong>R$ 14,30</strong> sem juros</div>
+        </div>
+
+        <a class="btn-whatsapp" href="https://wa.me/5500000000000?text=Olá!%20Quero%20comprar%20a%20Luva%20Premium%20por%20R$%2038,50%20no%20PIX" target="_blank">
           Comprar no WhatsApp
         </a>
       </div>
@@ -209,14 +237,8 @@
   </main>
 
   <footer>
-    © 2026 - Nome da Sua Loja
+    © 2026 - HCare - Todos os direitos reservados
   </footer>
 
 </body>
 </html>
-
-
-
-
-
-

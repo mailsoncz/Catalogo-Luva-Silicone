@@ -29,21 +29,29 @@
     }
 
     header {
-      background: #0f172a;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
+  background: #0f172a;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Alinha tudo à esquerda */
+  gap: 15px; /* Espaço entre os elementos */
+}
 
-    header img {
-      max-height: 60px;
-      margin-bottom: 10px;
-    }
+header img {
+  max-height: 50px; /* Ajustei para ficar proporcional */
+  margin-bottom: 0; /* Remove a margem inferior que existia */
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
-    }
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+header p {
+  margin: 0;
+  margin-left: auto; /* Empurra o texto "Catálogo..." para a direita */
+}
 
     .container {
       max-width: 1100px;

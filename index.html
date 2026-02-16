@@ -16,6 +16,12 @@
   <!-- Para iPhone/iPad quando salvarem na tela inicial -->
   <link rel="apple-touch-icon" href="./icon-192.png">
 
+  <!-- Font Awesome (ícones das redes sociais) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
   <style>
     * {
       box-sizing: border-box;
@@ -277,18 +283,91 @@ header p {
       background: #128C7E;
     }
 
-    footer{
-      text-align: center;
-      font-size: 0.7rem;
-      color: #777;
-      padding: 30px 20px;
-      line-height: 0.4;
-      margin-top: auto;
-    }
+   footer {
+  background-color: black;
+  padding: 30px 20px;
+  color: #ccc;
+  font-size: 0.7rem;
+}
+
+.footer-left {
+  text-align: left;
+  float: left;
+  width: 40%;
+}
+
+.footer-right {
+  text-align: right;
+  float: right;
+  width: 40%;
+}
+
+footer p {
+  margin: 5px 0;
+  line-height: 1.4;
+}
+
+/* Limpar a flutuação */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+    /* ===== REDES SOCIAIS ===== */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #0f172a; /* Cor do seu header */
+  color: white;
+  border-radius: 50%;
+  font-size: 1.0rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background: #25d366; /* Verde do WhatsApp no hover */
+  transform: translateY(-5px); /* Efeito de elevação */
+}
+
+/* Cores diferentes para cada rede no hover (opcional) */
+.social-links a:hover .fa-instagram {
+  /* O ícone já fica branco, mas você pode personalizar */
+}
+
+.social-links a[href*="instagram"]:hover {
+  background: #E4405F; /* Cor do Instagram */
+}
+
+.social-links a[href*="facebook"]:hover {
+  background: #1877F2; /* Cor do Facebook */
+}
+
+.social-links a[href*="wa.me"]:hover {
+  background: #25D366; /* Cor do WhatsApp */
+}
+
+.social-links a[href*="tiktok"]:hover {
+  background: #000000; /* Cor do TikTok */
+}
   </style>
 </head>
 
 <body>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
   <header>
     <img src="Logo.png" alt="Logo HCare" />
@@ -340,7 +419,7 @@ header p {
       data-desconto-pix="9" 
       data-parcelas="1" 
       data-juros-cartao="2">
-        <div class="badge">MAIS VENDIDO</div>
+        <div class="badge"><!-- selo opcional --></div>
         <img src="img/creme aloevera 50g.png" alt="Luva de Silicone" />
         <h2>Luva De Silicone Aloe Vera Para Mãos Miniatura 50g</h2>
 
@@ -348,7 +427,6 @@ header p {
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
           <span class="desconto-pix"></span>
-
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
@@ -406,8 +484,8 @@ header p {
 
       <!-- PRODUTO 4 - EXEMPLO ADICIONAL -->
       <div class="produto" 
-      data-preco-original="39.90" 
-      data-desconto-pix="20" 
+      data-preco-original="32.90" 
+      data-desconto-pix="8" 
       data-parcelas="3" 
       data-juros-cartao="6">
         <img src="img/creme aloevera.png" alt="Luva Premium" />
@@ -473,7 +551,51 @@ header p {
 
        <!-- PRODUTO 7 - EXEMPLO ADICIONAL -->
        <div class="produto"
-       data-preco-original="32.90"
+       data-preco-original="55"
+       data-desconto-pix="8"
+       data-parcelas="3"
+       data-juros-cartao="6">
+       <img src="img/creme aloevera e roma.png" alt="Luva Karite"/>
+       <h2>Kit 2 Cremes Luva de Silicone Para As Mãos 100g</h2>
+
+       <div class="preco-container">
+        <div class="preco-antigo"></div>
+        <div class="preco-pix"></div>
+        <span class="desconto-pix"></span>
+        <div class="preco-normal"></div>
+        <div class="parcelamento"></div>
+        </div>
+
+        <a class="btn-whatsapp" href="#" target="_blank">
+          Comprar no WhatsApp
+        </a>
+       </div>
+
+        <!-- PRODUTO 8 - EXEMPLO ADICIONAL -->
+       <div class="produto"
+       data-preco-original="95"
+       data-desconto-pix="8"
+       data-parcelas="3"
+       data-juros-cartao="6">
+       <img src="img/kit 3 cremes karite.png" alt="Luva Karite"/>
+       <h2>Kit 3 Cremes Luva de Silicone Karite Para As Mãos 100g</h2>
+
+       <div class="preco-container">
+        <div class="preco-antigo"></div>
+        <div class="preco-pix"></div>
+        <span class="desconto-pix"></span>
+        <div class="preco-normal"></div>
+        <div class="parcelamento"></div>
+        </div>
+
+        <a class="btn-whatsapp" href="#" target="_blank">
+          Comprar no WhatsApp
+        </a>
+       </div>
+
+        <!-- PRODUTO 9 - EXEMPLO ADICIONAL -->
+       <div class="produto"
+       data-preco-original="55"
        data-desconto-pix="8"
        data-parcelas="3"
        data-juros-cartao="6">
@@ -494,13 +616,36 @@ header p {
        </div>
 
 
+
+
     </section>
   </main>
 
-  <footer>
-    <P>© 2026 - HCare - Todos os direitos reservados</P>
-    <p>CNPJ: 64.361.415/0001-73</p>
-    <p>Telefone: 11 99999-9999 - Email: contato.hcare.oficial@gmail.com</p>
+  <footer class="clearfix">
+    <div class="footer-left">
+      <p>© 2026 - HCare - Todos os direitos reservados</p>
+      <p>✨ Cuidado que vira amor ✨</p>
+    </div>
+    <div class="footer-right">
+      <p>CNPJ: 64.361.415/0001-73</p>
+      <p>Telefone: 11 99999-9999 - Email: contato.hcare.oficial@gmail.com</p>
+    </div>
+
+  <!-- Redes Sociais -->
+  <div class="social-links">
+    <a href="https://instagram.com/seuperfil" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://facebook.com/seuperfil" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://wa.me/5511979526250" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://tiktok.com/@seuperfil" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-tiktok"></i>
+    </a>
+  </div>
   </footer>
 
   <script>

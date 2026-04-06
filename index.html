@@ -371,6 +371,64 @@
     .social-links a[href*="tiktok"]:hover {
       background: #000000;
       /* Cor do TikTok */
+
+      /* LOGO + TÍTULO */
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-area img {
+        max-height: 50px;
+      }
+
+      .logo-area h1 {
+        margin: 0;
+        font-size: 1.6rem;
+      }
+
+      .slogan {
+        margin: 0;
+        font-size: 0.7rem;
+        color: #f7f0eb;
+        opacity: 0.9;
+      }
+
+      /* INFORMAÇÕES DO TOPO */
+      .header-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 0.7rem;
+        background: rgba(255, 255, 255, 0.12);
+        padding: 6px 16px;
+        border-radius: 40px;
+        margin-left: auto;
+      }
+
+      .header-info span {
+        white-space: nowrap;
+      }
+
+      /* RESPONSIVO – EM CELULAR QUEBRA PARA COLUNA */
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .header-info {
+          margin-left: 0;
+          justify-content: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        }
+
+        .logo-area {
+          justify-content: center;
+        }
+      }
     }
   </style>
 </head>

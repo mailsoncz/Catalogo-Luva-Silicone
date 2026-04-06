@@ -34,7 +34,7 @@
       color: #333;
     }
 
-    /* ===== NOVO HEADER ===== */
+    /* ===== HEADER ===== */
     header {
       background: #cbae99;
       color: #fff;
@@ -82,7 +82,7 @@
       white-space: nowrap;
     }
 
-    /* ===== MENU DE CATEGORIAS ===== */
+    /* ===== MENU ===== */
     .menu-categorias {
       background: #cbae99;
       padding: 10px 0;
@@ -241,6 +241,7 @@
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 10px;
+      cursor: pointer;
     }
 
     .produto h2 {
@@ -386,6 +387,91 @@
     .social-links a[href*="tiktok"]:hover {
       background: #000000;
     }
+
+    /* ===== MODAL ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      cursor: pointer;
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 16px;
+      position: relative;
+      cursor: default;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .modal-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .close-modal {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #999;
+    }
+
+    .close-modal:hover {
+      color: #333;
+    }
+
+    .modal-titulo {
+      font-size: 1.3rem;
+      margin: 15px 0 10px;
+      color: #0f172a;
+    }
+
+    .modal-descricao {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .modal-preco {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0f172a;
+      margin: 10px 0;
+    }
+
+    .modal-beneficios {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0;
+    }
+
+    .modal-beneficios li {
+      padding: 5px 0;
+      font-size: 0.85rem;
+    }
+
+    .modal-beneficios li:before {
+      content: "✓ ";
+      color: #4CAF50;
+      font-weight: bold;
+      margin-right: 5px;
+    }
   </style>
 </head>
 
@@ -405,6 +491,7 @@
     </div>
     <div class="header-info">
       <span>🚚 Frete Grátis acima de R$ 100</span>
+      <span>💳 Parcele em até 3x sem juros</span>
       <span>⭐ +500 clientes satisfeitos</span>
       <span>📞 WhatsApp rápido</span>
     </div>
@@ -413,24 +500,21 @@
   <nav class="menu-categorias">
     <ul class="menu">
       <li><a href="#">Início</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Luvas Silicone▾</a>
+      <li class="dropdown"><a href="#" class="dropbtn">Luvas Silicone▾</a>
         <div class="dropdown-content">
           <a href="#">Aloe Vera</a>
           <a href="#">Roma</a>
           <a href="#">Karite</a>
         </div>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Kits Para Presentes ▾</a>
+      <li class="dropdown"><a href="#" class="dropbtn">Kits Para Presentes ▾</a>
         <div class="dropdown-content">
           <a href="#">Luvas de Silicone</a>
           <a href="#">Perfumes</a>
           <a href="#">Cremes Para o Rosto</a>
         </div>
       </li>
-      <li class="dropdown">
-        <a href="#" class="dropbtn">Cremes ▾</a>
+      <li class="dropdown"><a href="#" class="dropbtn">Cremes ▾</a>
         <div class="dropdown-content">
           <a href="#">Creme Aloe Vera</a>
           <a href="#">Creme Roma</a>
@@ -445,7 +529,9 @@
     <section class="catalogo">
 
       <!-- PRODUTO 1 -->
-      <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37">
+      <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37"
+        data-descricao="Luva de silicone com Aloe Vera que hidrata profundamente enquanto você faz suas tarefas diárias. Ideal para peles ressecadas."
+        data-beneficios="Hidratação profunda,Toque macio e sedoso,Aloe Vera natural,Resultado rápido">
         <div class="badge"><!-- selo opcional --></div>
         <img src="img/creme aloevera.png" alt="Luva de Silicone" />
         <h2>Luva De Silicone Aloe Vera Para Mãos 100g</h2>
@@ -460,8 +546,10 @@
       </div>
 
       <!-- PRODUTO 2 -->
-      <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37">
-        <img src="img/creme karite.png" alt="Kit 3 Luvas" />
+      <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37"
+        data-descricao="Luva de silicone enriquecida com Manteiga de Karité, conhecida por seu poder nutritivo e regenerador. Perfeita para mãos muito ressecadas."
+        data-beneficios="Nutrição intensa,Repara a pele,Protege contra ressecamento,Fragrância suave">
+        <img src="img/creme karite.png" alt="Luva de Silicone Karite" />
         <h2>Luva De Silicone Karite Para Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -474,8 +562,10 @@
       </div>
 
       <!-- PRODUTO 3 -->
-      <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37">
-        <img src="img/creme roma.png" alt="Luva Premium" />
+      <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37"
+        data-descricao="Luva de silicone com extrato de Romã, rica em antioxidantes que combatem o envelhecimento e deixam as mãos com aparência jovem."
+        data-beneficios="Antioxidante natural,Combate o envelhecimento,Pele mais firme,Toque aveludado">
+        <img src="img/creme roma.png" alt="Luva de Silicone Romã" />
         <h2>Luva De Silicone Romã Para Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -488,8 +578,10 @@
       </div>
 
       <!-- PRODUTO 4 -->
-      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/kit 2 cremes aloevera.png" alt="Luva Premium" />
+      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 2 luvas de silicone Aloe Vera 100g. O combo perfeito para presentear ou ter sempre uma reserva em casa."
+        data-beneficios="Duas unidades,Melhor custo-benefício,Perfeito para presentear,Ideal para rotina diária">
+        <img src="img/kit 2 cremes aloevera.png" alt="Kit 2 Luvas Aloe Vera" />
         <h2>Kit 2 Cremes Luva de Silicone Aloe-Vera Para As Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -502,8 +594,10 @@
       </div>
 
       <!-- PRODUTO 5 -->
-      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/kit 2 cremes karite.png" alt="Luva Karite" />
+      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 2 luvas de silicone Karité 100g. Dupla proteção e nutrição para mãos extremamente ressecadas."
+        data-beneficios="Nutrição em dobro,Reparação profunda,Peito suave e macio,Ótimo para uso diário">
+        <img src="img/kit 2 cremes karite.png" alt="Kit 2 Luvas Karite" />
         <h2>Kit 2 Cremes Luva de Silicone Karite Para As Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -516,8 +610,10 @@
       </div>
 
       <!-- PRODUTO 6 -->
-      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/kit 2 cremes roma.png" alt="Luva Romã" />
+      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 2 luvas de silicone Romã 100g. O poder antioxidante em dobro para mãos sempre jovens."
+        data-beneficios="Dupla ação antioxidante,Previne o envelhecimento,Pele mais viçosa,Ideal para presente">
+        <img src="img/kit 2 cremes roma.png" alt="Kit 2 Luvas Romã" />
         <h2>Kit 2 Cremes Luva de Silicone Romã Para As Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -530,8 +626,10 @@
       </div>
 
       <!-- PRODUTO 7 -->
-      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/creme aloevera e roma.png" alt="Luva Karite" />
+      <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 2 luvas de silicone Aloe Vera e Romã 100g. A combinação perfeita entre hidratação profunda e ação antioxidante."
+        data-beneficios="Hidratação + Antioxidante,Duas fragrâncias,O melhor dos dois mundos,Ideal para variar a rotina">
+        <img src="img/creme aloevera e roma.png" alt="Kit Aloe Vera e Romã" />
         <h2>Kit 2 Cremes Luva de Silicone Aloe-Vera e Romã Para As Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -544,8 +642,10 @@
       </div>
 
       <!-- PRODUTO 8 -->
-      <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/kit 3 creme aloevera.png" alt="Luva Karite" />
+      <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 3 luvas de silicone Aloe Vera 100g. O pacote econômico para quem não abre mão da hidratação diária."
+        data-beneficios="Três unidades,Melhor custo-benefício,Economia garantida,Estoque para meses">
+        <img src="img/kit 3 creme aloevera.png" alt="Kit 3 Luvas Aloe Vera" />
         <h2>Kit 3 Cremes Luva de Silicone Aloe-Vera Para As Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -558,8 +658,10 @@
       </div>
 
       <!-- PRODUTO 9 -->
-      <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/kit 3 cremes karite.png" alt="Luva Karite" />
+      <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 3 luvas de silicone Karité 100g. O combo super nutritivo para quem busca reparação intensa."
+        data-beneficios="Nutrição tripla,Super economia,Ideal para peles secas,Estoque garantido">
+        <img src="img/kit 3 cremes karite.png" alt="Kit 3 Luvas Karite" />
         <h2>Kit 3 Cremes Luva de Silicone Karite Para As Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -572,8 +674,10 @@
       </div>
 
       <!-- PRODUTO 10 -->
-      <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/kit 3 cremes roma.png" alt="Luva Karite" />
+      <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 3 luvas de silicone Romã 100g. O pacote premium para manter as mãos sempre jovens e protegidas."
+        data-beneficios="Ação antioxidante tripla,Previne o envelhecimento,Super economia,O presente perfeito">
+        <img src="img/kit 3 cremes roma.png" alt="Kit 3 Luvas Romã" />
         <h2>Kit 3 Cremes Luva de Silicone Romã Para As Mãos 100g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -586,8 +690,10 @@
       </div>
 
       <!-- PRODUTO 11 -->
-      <div class="produto" data-preco-original="14.90" data-desconto-pix="30" data-parcelas="1" data-juros-cartao="6">
-        <img src="img/creme aloevera 50g.png" alt="Luva Aloe-Vera" />
+      <div class="produto" data-preco-original="14.90" data-desconto-pix="30" data-parcelas="1" data-juros-cartao="6"
+        data-descricao="Luva de silicone Aloe Vera tamanho mini (50g). Ideal para viagens, bolsa ou para experimentar o produto."
+        data-beneficios="Tamanho compacto,Fácil de levar,Perfeita para viagens,Ideal para teste">
+        <img src="img/creme aloevera 50g.png" alt="Luva Aloe Vera 50g" />
         <h2>Luva De Silicone Aloe-Vera Para Mãos Miniatura 50g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -600,8 +706,10 @@
       </div>
 
       <!-- PRODUTO 12 -->
-      <div class="produto" data-preco-original="14.90" data-desconto-pix="30" data-parcelas="1" data-juros-cartao="6">
-        <img src="img/creme karite 50g.png" alt="Luva Karite" />
+      <div class="produto" data-preco-original="14.90" data-desconto-pix="30" data-parcelas="1" data-juros-cartao="6"
+        data-descricao="Luva de silicone Karité tamanho mini (50g). Nutrição concentrada em um tamanho prático para levar para qualquer lugar."
+        data-beneficios="Prático e compacto,Nutrição concentrada,Ideal para bolsa,Perfeito para presentear">
+        <img src="img/creme karite 50g.png" alt="Luva Karite 50g" />
         <h2>Luva De Silicone Karite Para Mãos Miniatura 50g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -614,8 +722,10 @@
       </div>
 
       <!-- PRODUTO 13 -->
-      <div class="produto" data-preco-original="14.90" data-desconto-pix="8" data-parcelas="1" data-juros-cartao="6">
-        <img src="img/creme roma 50g.png" alt="Luva Romã" />
+      <div class="produto" data-preco-original="14.90" data-desconto-pix="8" data-parcelas="1" data-juros-cartao="6"
+        data-descricao="Luva de silicone Romã tamanho mini (50g). O poder antioxidante em um tamanho compacto para cuidar das mãos em qualquer lugar."
+        data-beneficios="Antioxidante portátil,Prática e eficiente,Ideal para viagens,Toque aveludado">
+        <img src="img/creme roma 50g.png" alt="Luva Romã 50g" />
         <h2>Luva De Silicone Romã Para Mãos Miniatura 50g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -628,8 +738,10 @@
       </div>
 
       <!-- PRODUTO 14 -->
-      <div class="produto" data-preco-original="69.90" data-desconto-pix="28" data-parcelas="3" data-juros-cartao="6">
-        <img src="img/kit 3 cremes 50g presente.png" alt="Luva Karite" />
+      <div class="produto" data-preco-original="69.90" data-desconto-pix="28" data-parcelas="3" data-juros-cartao="6"
+        data-descricao="Kit com 3 luvas de silicone miniaturas (50g) - Aloe Vera, Karité e Romã. O kit presente perfeito para presentear ou para experimentar todos os aromas."
+        data-beneficios="Três fragrâncias,Ideal para presente,Experiência completa,Super versátil">
+        <img src="img/kit 3 cremes 50g presente.png" alt="Kit 3 Luvas Miniaturas" />
         <h2>Kit 3 Cremes Para Presentes Miniatura 50g</h2>
         <div class="preco-container">
           <div class="preco-antigo"></div>
@@ -661,11 +773,26 @@
     </div>
   </footer>
 
+  <!-- MODAL DE DESCRIÇÃO DO PRODUTO -->
+  <div id="produtoModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <img id="modal-img" class="modal-img" src="" alt="">
+      <h3 id="modal-titulo" class="modal-titulo"></h3>
+      <p id="modal-descricao" class="modal-descricao"></p>
+      <div id="modal-preco" class="modal-preco"></div>
+      <ul id="modal-beneficios" class="modal-beneficios"></ul>
+      <button id="modal-comprar" class="btn-whatsapp" style="width: 100%;">Comprar no WhatsApp</button>
+    </div>
+  </div>
+
   <script>
+    // Função para formatar preços em reais
     function formatarPreco(valor) {
       return valor.toFixed(2).replace('.', ',');
     }
 
+    // Função que calcula tudo para cada produto
     function calcularPrecos(produto) {
       const precoOriginal = parseFloat(produto.dataset.precoOriginal);
       const descontoPix = parseFloat(produto.dataset.descontoPix);
@@ -713,8 +840,64 @@
       linkWhatsApp.href = `https://wa.me/5511979526250?text=${encodeURIComponent(mensagem)}`;
     }
 
+    // ===== MODAL =====
+    const modal = document.getElementById('produtoModal');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitulo = document.getElementById('modal-titulo');
+    const modalDescricao = document.getElementById('modal-descricao');
+    const modalPreco = document.getElementById('modal-preco');
+    const modalBeneficios = document.getElementById('modal-beneficios');
+    const modalComprar = document.getElementById('modal-comprar');
+
+    function abrirModal(produto) {
+      const nome = produto.querySelector('h2').innerText;
+      const imgSrc = produto.querySelector('img').src;
+      const precoPix = produto.querySelector('.preco-pix').innerText;
+
+      const descricao = produto.dataset.descricao || 'Produto de alta qualidade para cuidar das suas mãos.';
+
+      let beneficios = [];
+      if (produto.dataset.beneficios) {
+        beneficios = produto.dataset.beneficios.split(',');
+      } else {
+        beneficios = ['Hidratação profunda', 'Toque suave e macio', 'Fragrância agradável', 'Resultado imediato'];
+      }
+
+      modalImg.src = imgSrc;
+      modalTitulo.innerText = nome;
+      modalDescricao.innerText = descricao;
+      modalPreco.innerText = precoPix;
+
+      modalBeneficios.innerHTML = '';
+      beneficios.forEach(b => {
+        const li = document.createElement('li');
+        li.innerText = b.trim();
+        modalBeneficios.appendChild(li);
+      });
+
+      modal.style.display = 'block';
+      modalComprar.onclick = () => {
+        const whatsappLink = produto.querySelector('.btn-whatsapp').href;
+        window.open(whatsappLink, '_blank');
+        modal.style.display = 'none';
+      };
+    }
+
+    // Fechar modal
+    document.querySelector('.close-modal').onclick = () => modal.style.display = 'none';
+    window.onclick = (e) => { if (e.target == modal) modal.style.display = 'none'; };
+
+    // Adicionar evento de clique nas imagens
+    function adicionarEventoCliqueImagens() {
+      document.querySelectorAll('.produto img').forEach(img => {
+        img.onclick = () => abrirModal(img.closest('.produto'));
+      });
+    }
+
+    // Aplicar para todos os produtos quando a página carregar
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('.produto').forEach(calcularPrecos);
+      adicionarEventoCliqueImagens();
     });
   </script>
 

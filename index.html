@@ -34,22 +34,57 @@
       color: #333;
     }
 
+    /* ===== NOVO HEADER ===== */
     header {
       background: #cbae99;
       color: #fff;
       padding: 20px;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      /* Alinha tudo à esquerda */
+      justify-content: space-between;
+      flex-wrap: wrap;
       gap: 15px;
-      /* Espaço entre os elementos */
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-area img {
+      max-height: 50px;
+    }
+
+    .logo-area h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .slogan {
+      margin: 0;
+      font-size: 0.7rem;
+      color: #f7f0eb;
+      opacity: 0.9;
+    }
+
+    .header-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.7rem;
+      background: rgba(255, 255, 255, 0.12);
+      padding: 6px 16px;
+      border-radius: 40px;
+    }
+
+    .header-info span {
+      white-space: nowrap;
     }
 
     /* ===== MENU DE CATEGORIAS ===== */
     .menu-categorias {
       background: #cbae99;
-      /* Mesma cod do header */
       padding: 10px 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       position: sticky;
@@ -87,7 +122,6 @@
       background: #f7c09c;
     }
 
-    /* ESTILOS DO DROPDOWN */
     .dropdown-content {
       display: none;
       position: absolute;
@@ -119,12 +153,10 @@
       color: #0f172a !important;
     }
 
-    /* MOSTRAR DROPDOWN AO PASSAR O MOUSE */
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
-    /* RESPONSIVIDADE PARA CELULAR */
     @media (max-width: 768px) {
       .menu {
         flex-direction: column;
@@ -147,24 +179,20 @@
       .dropdown-content a:hover {
         background: #3d4b5f;
       }
-    }
 
-    header img {
-      max-height: 50px;
-      /* Ajustei para ficar proporcional */
-      margin-bottom: 0;
-      /* Remove a margem inferior que existia */
-    }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.6rem;
-    }
+      .header-info {
+        margin-left: 0;
+        justify-content: center;
+      }
 
-    header p {
-      margin: 0;
-      margin-left: auto;
-      /* Empurra o texto "Catálogo..." para a direita */
+      .logo-area {
+        justify-content: center;
+      }
     }
 
     .container {
@@ -222,7 +250,6 @@
       color: #333;
     }
 
-    /* ESTILOS DOS PREÇOS - DESTAQUE PARA PIX */
     .preco-container {
       background: #f8f9fa;
       padding: 12px;
@@ -313,14 +340,12 @@
       line-height: 1.4;
     }
 
-    /* Limpar a flutuação */
     .clearfix::after {
       content: "";
       clear: both;
       display: table;
     }
 
-    /* ===== REDES SOCIAIS ===== */
     .social-links {
       display: flex;
       justify-content: center;
@@ -335,7 +360,6 @@
       width: 30px;
       height: 30px;
       background: #0f172a;
-      /* Cor do seu header */
       color: white;
       border-radius: 50%;
       font-size: 1.0rem;
@@ -344,91 +368,23 @@
     }
 
     .social-links a:hover {
-      background: #25d366;
-      /* Verde do WhatsApp no hover */
       transform: translateY(-5px);
-      /* Efeito de elevação */
     }
-
-    /* Cores diferentes para cada rede no hover (opcional) */
-
 
     .social-links a[href*="instagram"]:hover {
       background: #E4405F;
-      /* Cor do Instagram */
     }
 
     .social-links a[href*="facebook"]:hover {
       background: #1877F2;
-      /* Cor do Facebook */
     }
 
     .social-links a[href*="wa.me"]:hover {
       background: #25D366;
-      /* Cor do WhatsApp */
     }
 
     .social-links a[href*="tiktok"]:hover {
       background: #000000;
-      /* Cor do TikTok */
-
-      /* LOGO + TÍTULO */
-      .logo-area {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .logo-area img {
-        max-height: 50px;
-      }
-
-      .logo-area h1 {
-        margin: 0;
-        font-size: 1.6rem;
-      }
-
-      .slogan {
-        margin: 0;
-        font-size: 0.7rem;
-        color: #f7f0eb;
-        opacity: 0.9;
-      }
-
-      /* INFORMAÇÕES DO TOPO */
-      .header-info {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        font-size: 0.7rem;
-        background: rgba(255, 255, 255, 0.12);
-        padding: 6px 16px;
-        border-radius: 40px;
-        margin-left: auto;
-      }
-
-      .header-info span {
-        white-space: nowrap;
-      }
-
-      /* RESPONSIVO – EM CELULAR QUEBRA PARA COLUNA */
-      @media (max-width: 768px) {
-        header {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        .header-info {
-          margin-left: 0;
-          justify-content: center;
-          gap: 12px;
-          flex-wrap: wrap;
-        }
-
-        .logo-area {
-          justify-content: center;
-        }
-      }
     }
   </style>
 </head>
@@ -447,7 +403,6 @@
         <p class="slogan">✨ Cuidado que vira amor ✨</p>
       </div>
     </div>
-
     <div class="header-info">
       <span>🚚 Frete Grátis acima de R$ 100</span>
       <span>💳 Parcele em até 3x sem juros</span>
@@ -456,20 +411,17 @@
     </div>
   </header>
 
-  <!-- MENU DE CATEGORIAS -->
   <nav class="menu-categorias">
     <ul class="menu">
       <li><a href="#">Início</a></li>
-
       <li class="dropdown">
         <a href="#" class="dropbtn">Luvas Silicone▾</a>
         <div class="dropdown-content">
-          <a href="#">Aloe Vera </a>
-          <a href="#">Roma </a>
-          <a href="#">Karite </a>
+          <a href="#">Aloe Vera</a>
+          <a href="#">Roma</a>
+          <a href="#">Karite</a>
         </div>
       </li>
-
       <li class="dropdown">
         <a href="#" class="dropbtn">Kits Para Presentes ▾</a>
         <div class="dropdown-content">
@@ -478,7 +430,6 @@
           <a href="#">Cremes Para o Rosto</a>
         </div>
       </li>
-
       <li class="dropdown">
         <a href="#" class="dropbtn">Cremes ▾</a>
         <div class="dropdown-content">
@@ -487,7 +438,6 @@
           <a href="#">Creme Karite</a>
         </div>
       </li>
-
       <li><a href="#">Promoções</a></li>
     </ul>
   </nav>
@@ -495,12 +445,11 @@
   <main class="container">
     <section class="catalogo">
 
-      <!-- PRODUTO 1 - COM DESCONTO NO PIX -->
+      <!-- PRODUTO 1 -->
       <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37">
         <div class="badge"><!-- selo opcional --></div>
         <img src="img/creme aloevera.png" alt="Luva de Silicone" />
         <h2>Luva De Silicone Aloe Vera Para Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -508,74 +457,55 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank"> <!-- href vazio -->
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 2 - KIT COM 3 LUVAS -->
+      <!-- PRODUTO 2 -->
       <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37">
         <img src="img/creme karite.png" alt="Kit 3 Luvas" />
         <h2>Luva De Silicone Karite Para Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
           <span class="desconto-pix"></span>
-
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank"> <!-- href vazio -->
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 3 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 3 -->
       <div class="produto" data-preco-original="32.90" data-desconto-pix="0" data-parcelas="3" data-juros-cartao="6.37">
         <img src="img/creme roma.png" alt="Luva Premium" />
         <h2>Luva De Silicone Romã Para Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
           <span class="desconto-pix"></span>
-
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank"> <!-- href vazio -->
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 4 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 4 -->
       <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
         <img src="img/kit 2 cremes aloevera.png" alt="Luva Premium" />
         <h2>Kit 2 Cremes Luva de Silicone Aloe-Vera Para As Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
           <span class="desconto-pix"></span>
-
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank"> <!-- href vazio -->
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 5 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 5 -->
       <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
         <img src="img/kit 2 cremes karite.png" alt="Luva Karite" />
         <h2>Kit 2 Cremes Luva de Silicone Karite Para As Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -583,17 +513,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 6 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 6 -->
       <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
         <img src="img/kit 2 cremes roma.png" alt="Luva Romã" />
         <h2>Kit 2 Cremes Luva de Silicone Romã Para As Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -601,17 +527,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 7 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 7 -->
       <div class="produto" data-preco-original="55" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
         <img src="img/creme aloevera e roma.png" alt="Luva Karite" />
         <h2>Kit 2 Cremes Luva de Silicone Aloe-Vera e Romã Para As Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -619,17 +541,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 8 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 8 -->
       <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
         <img src="img/kit 3 creme aloevera.png" alt="Luva Karite" />
         <h2>Kit 3 Cremes Luva de Silicone Aloe-Vera Para As Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -637,17 +555,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 9 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 9 -->
       <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
         <img src="img/kit 3 cremes karite.png" alt="Luva Karite" />
         <h2>Kit 3 Cremes Luva de Silicone Karite Para As Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -655,17 +569,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 10 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 10 -->
       <div class="produto" data-preco-original="95" data-desconto-pix="8" data-parcelas="3" data-juros-cartao="6">
         <img src="img/kit 3 cremes roma.png" alt="Luva Karite" />
         <h2>Kit 3 Cremes Luva de Silicone Romã Para As Mãos 100g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -673,17 +583,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 11 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 11 -->
       <div class="produto" data-preco-original="14.90" data-desconto-pix="30" data-parcelas="1" data-juros-cartao="6">
         <img src="img/creme aloevera 50g.png" alt="Luva Aloe-Vera" />
         <h2>Luva De Silicone Aloe-Vera Para Mãos Miniatura 50g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -691,17 +597,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 12 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 12 -->
       <div class="produto" data-preco-original="14.90" data-desconto-pix="30" data-parcelas="1" data-juros-cartao="6">
         <img src="img/creme karite 50g.png" alt="Luva Karite" />
         <h2>Luva De Silicone Karite Para Mãos Miniatura 50g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -709,17 +611,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 13 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 13 -->
       <div class="produto" data-preco-original="14.90" data-desconto-pix="8" data-parcelas="1" data-juros-cartao="6">
         <img src="img/creme roma 50g.png" alt="Luva Romã" />
         <h2>Luva De Silicone Romã Para Mãos Miniatura 50g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -727,17 +625,13 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
 
-      <!-- PRODUTO 14 - EXEMPLO ADICIONAL -->
+      <!-- PRODUTO 14 -->
       <div class="produto" data-preco-original="69.90" data-desconto-pix="28" data-parcelas="3" data-juros-cartao="6">
         <img src="img/kit 3 cremes 50g presente.png" alt="Luva Karite" />
         <h2>Kit 3 Cremes Para Presentes Miniatura 50g</h2>
-
         <div class="preco-container">
           <div class="preco-antigo"></div>
           <div class="preco-pix"></div>
@@ -745,11 +639,9 @@
           <div class="preco-normal"></div>
           <div class="parcelamento"></div>
         </div>
-
-        <a class="btn-whatsapp" href="#" target="_blank">
-          Comprar no WhatsApp
-        </a>
+        <a class="btn-whatsapp" href="#" target="_blank">Comprar no WhatsApp</a>
       </div>
+
     </section>
   </main>
 
@@ -762,43 +654,28 @@
       <p>CNPJ: 64.361.415/0001-73</p>
       <p>Telefone: 11 99999-9999 - Email: contato.hcare.oficial@gmail.com</p>
     </div>
-
-    <!-- Redes Sociais -->
     <div class="social-links">
-      <a href="https://instagram.com/seuperfil" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://facebook.com/seuperfil" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="https://wa.me/5511979526250" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="https://tiktok.com/@seuperfil" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-tiktok"></i>
-      </a>
+      <a href="https://instagram.com/seuperfil" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com/seuperfil" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://wa.me/5511979526250" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://tiktok.com/@seuperfil" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
     </div>
   </footer>
 
   <script>
-    // Função para formatar preços em reais
     function formatarPreco(valor) {
       return valor.toFixed(2).replace('.', ',');
     }
 
-    // Função que calcula tudo para cada produto
     function calcularPrecos(produto) {
-      // Pegar os valores dos atributos data-
       const precoOriginal = parseFloat(produto.dataset.precoOriginal);
       const descontoPix = parseFloat(produto.dataset.descontoPix);
-      const parcelas = parseInt(produto.dataset.parcelas) || 3; // padrão: 3x
-      const jurosCartao = parseFloat(produto.dataset.jurosCartao) || 0; // 0 = sem juros
+      const parcelas = parseInt(produto.dataset.parcelas) || 3;
+      const jurosCartao = parseFloat(produto.dataset.jurosCartao) || 0;
 
-      // Cálculos
       const valorPix = precoOriginal * (1 - descontoPix / 100);
       let valorCartao = precoOriginal;
 
-      // Se tiver juros no cartão, aplica (ex: 5% = 1.05)
       if (jurosCartao > 0) {
         valorCartao = precoOriginal * (1 + jurosCartao / 100);
       }
@@ -807,7 +684,6 @@
 
       produto.querySelector('.preco-pix').innerHTML = `R$ ${formatarPreco(valorPix)}`;
 
-      // Validação do preço riscado
       if (descontoPix > 0) {
         produto.querySelector('.preco-antigo').innerHTML = `R$ ${formatarPreco(precoOriginal)}`;
         produto.querySelector('.preco-antigo').style.display = 'block';
@@ -816,7 +692,6 @@
         produto.querySelector('.preco-antigo').style.display = 'none';
       }
 
-      // Só mostra o selo se tiver desconto (maior que 0)
       if (descontoPix > 0) {
         produto.querySelector('.desconto-pix').innerHTML = `${descontoPix}% OFF NO PIX`;
         produto.querySelector('.desconto-pix').style.display = 'inline-block';
@@ -833,15 +708,12 @@
         produto.querySelector('.parcelamento').innerHTML = `ou ${parcelas}x de <strong>R$ ${formatarPreco(valorParcela)}</strong> sem juros`;
       }
 
-
-      // Atualizar link do WhatsApp
       const nomeProduto = produto.querySelector('h2').innerText;
       const linkWhatsApp = produto.querySelector('.btn-whatsapp');
       const mensagem = `Olá! Quero comprar ${nomeProduto} por R$ ${formatarPreco(valorPix)} no PIX`;
       linkWhatsApp.href = `https://wa.me/5511979526250?text=${encodeURIComponent(mensagem)}`;
     }
 
-    // Aplicar para todos os produtos quando a página carregar
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('.produto').forEach(calcularPrecos);
     });

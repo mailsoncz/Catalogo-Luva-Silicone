@@ -735,8 +735,14 @@
 
       const valorParcela = valorCartao / parcelas;
 
-      produto.querySelector('.preco-antigo').innerHTML = `R$ ${formatarPreco(precoOriginal)}`;
-      produto.querySelector('.preco-pix').innerHTML = `R$ ${formatarPreco(valorPix)}`;
+      // Validação do preço riscado
+      if (descontoPix > 0) {
+        produto.querySelector('.preco-antigo').innerHTML = `R$ ${formatarPreco(precoOriginal)}`;
+        produto.querySelector('.preco-antigo').style.display = 'block';
+      } else {
+        produto.querySelector('.preco-antigo').innerHTML = '';
+        produto.querySelector('.preco-antigo').style.display = 'none';
+      }
 
       // Só mostra o selo se tiver desconto (maior que 0)
       if (descontoPix > 0) {
